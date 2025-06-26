@@ -106,29 +106,44 @@
       border-radius: 8px;
       cursor: pointer;
       transition: all 0.3s ease;
+      border: 2px solid transparent;
     }
     .equipment:hover {
       transform: scale(1.05);
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
     
+    /* Equipment status colors */
+    .equipment.idle {
+      background: #6c757d;
+      color: white;
+    }
+    .equipment.ok {
+      background: #28a745;
+      color: white;
+    }
+    .equipment.ng {
+      background: #dc3545;
+      color: white;
+    }
+    .equipment.warning {
+      background: #ffc107;
+      color: #212529;
+    }
+    
     .tester {
       width: 80px;
       height: 60px;
-      color: white;
     }
-    .tester.test-start {
-      background: #ffc107;
+    .tester1 {
       top: 50px;
       left: 50px;
     }
-    .tester.pass {
-      background: #28a745;
+    .tester2 {
       top: 200px;
       left: 50px;
     }
-    .tester.fail {
-      background: #dc3545;
+    .tester3 {
       top: 350px;
       left: 50px;
     }
@@ -137,8 +152,6 @@
       width: 60px;
       height: 60px;
       border-radius: 50%;
-      background: #6c757d;
-      color: white;
     }
     .robot1 {
       top: 150px;
@@ -152,7 +165,6 @@
     .conveyor {
       width: 20px;
       height: 400px;
-      background: #adb5bd;
       top: 50px;
       left: 300px;
       border-radius: 10px;
@@ -161,8 +173,6 @@
     .error-zone {
       width: 100px;
       height: 40px;
-      background: #dc3545;
-      color: white;
       top: 100px;
       left: 350px;
       font-size: 10px;
@@ -171,20 +181,70 @@
     .new-box {
       width: 80px;
       height: 40px;
-      background: #17a2b8;
-      color: white;
       top: 400px;
       left: 350px;
       font-size: 10px;
     }
     
+    .ng-box {
+      width: 120px;
+      height: 80px;
+      top: 280px;
+      left: 450px;
+      font-size: 10px;
+      background: white;
+      border: 2px solid #dc3545;
+      color: #dc3545;
+      display: flex;
+      flex-direction: column;
+      padding: 5px;
+    }
+    
+    .ng-box-title {
+      font-weight: bold;
+      margin-bottom: 5px;
+      text-align: center;
+    }
+    
+    .ng-positions {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      flex-grow: 1;
+    }
+    
+    .ng-position {
+      width: 100%;
+      height: 100%;
+      border: 1px solid #dc3545;
+      border-radius: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    
+    .ng-position.empty {
+      background: #f8f9fa;
+      color: #6c757d;
+    }
+    
+    .ng-position.filled {
+      background: #dc3545;
+      color: white;
+    }
+    
+    .ng-position:hover {
+      transform: scale(1.1);
+    }
+    
     .fg-area {
       width: 60px;
       height: 60px;
-      background: #28a745;
-      color: white;
       top: 350px;
-      left: 450px;
+      left: 600px;
       font-size: 10px;
     }
     
@@ -720,7 +780,7 @@
 <body>
 
   <div class="sidebar">
-    <button id="main-page-btn" class="active">设备总览</button>
+    <button id="main-page-btn" class="active">Main</button>
     <button id="function-test-btn">Function Test</button>
     <button id="aoi-btn">AOI</button>
     <button id="cycle-time-btn">Cycle Time</button>
@@ -734,42 +794,55 @@
           <h3>设备布局图</h3>
           <div class="layout-container">
             <!-- Testers -->
-            <div class="equipment tester test-start" title="Tester 1 - 测试开始">
+            <div class="equipment tester tester1 warning" title="Tester 1 - 待机" data-status="warning">
               <div>Tester 1</div>
-              <div style="font-size: 10px;">Test Start</div>
+              <div style="font-size: 10px;">待机</div>
             </div>
-            <div class="equipment tester pass" title="Tester 2 - 通过">
+            <div class="equipment tester tester2 ok" title="Tester 2 - 正常" data-status="ok">
               <div>Tester 2</div>
-              <div style="font-size: 10px;">PASS</div>
+              <div style="font-size: 10px;">正常</div>
             </div>
-            <div class="equipment tester fail" title="Tester 3 - 失败">
+            <div class="equipment tester tester3 ng" title="Tester 3 - 故障" data-status="ng">
               <div>Tester 3</div>
-              <div style="font-size: 10px;">FAIL</div>
+              <div style="font-size: 10px;">故障</div>
             </div>
             
             <!-- Robots -->
-            <div class="equipment robot robot1" title="Robot 1">
+            <div class="equipment robot robot1 idle" title="Robot 1 - 空闲" data-status="idle">
               Robot 1
             </div>
-            <div class="equipment robot robot2" title="Robot 2">
+            <div class="equipment robot robot2 ok" title="Robot 2 - 运行中" data-status="ok">
               Robot 2
             </div>
             
             <!-- Conveyor -->
-            <div class="equipment conveyor" title="传送带"></div>
+            <div class="equipment conveyor ok" title="传送带 - 运行中" data-status="ok"></div>
             
             <!-- Error Zone -->
-            <div class="equipment error-zone" title="错误区域">
+            <div class="equipment error-zone ng" title="错误区域 - 有故障产品" data-status="ng">
               ERROR
             </div>
             
             <!-- New Box Area -->
-            <div class="equipment new-box" title="新产品区">
+            <div class="equipment new-box ok" title="新产品区 - 正常" data-status="ok">
               NEW BOX
             </div>
             
+            <!-- NG Box Area -->
+            <div class="equipment ng-box" title="不良品盒子">
+              <div class="ng-box-title">NG Box</div>
+              <div class="ng-positions">
+                <div class="ng-position filled" data-position="1" title="位置1 - 不良品">1</div>
+                <div class="ng-position empty" data-position="2" title="位置2 - 空">2</div>
+                <div class="ng-position filled" data-position="3" title="位置3 - 不良品">3</div>
+                <div class="ng-position empty" data-position="4" title="位置4 - 空">4</div>
+                <div class="ng-position filled" data-position="5" title="位置5 - 不良品">5</div>
+                <div class="ng-position empty" data-position="6" title="位置6 - 空">6</div>
+              </div>
+            </div>
+            
             <!-- FG Area -->
-            <div class="equipment fg-area" title="成品区">
+            <div class="equipment fg-area ok" title="成品区 - 正常" data-status="ok">
               FG
             </div>
           </div>
@@ -1003,6 +1076,20 @@
       equipment.addEventListener('click', function() {
         const title = this.getAttribute('title');
         alert(`设备信息: ${title}\n点击查看更多详细信息...`);
+      });
+    });
+    
+    // NG盒子位置点击事件处理
+    document.querySelectorAll('.ng-position.filled').forEach(position => {
+      position.addEventListener('click', function(e) {
+        e.stopPropagation(); // 阻止事件冒泡
+        const positionNum = this.getAttribute('data-position');
+        
+        // 跳转到Function Test页面
+        showPanel('function-test-panel', 'function-test-btn');
+        
+        // 可以在这里添加更多逻辑，比如高亮显示特定的测试数据
+        alert(`查看位置${positionNum}的不良品详细信息`);
       });
     });
     
@@ -1455,8 +1542,54 @@
       }
     });
     
+    // 更新设备状态函数
+    function updateEquipmentStatus(equipmentId, status) {
+      const equipment = document.querySelector(`.${equipmentId}`);
+      if (equipment) {
+        // 移除所有状态类
+        equipment.classList.remove('idle', 'ok', 'ng', 'warning');
+        // 添加新状态类
+        equipment.classList.add(status);
+        equipment.setAttribute('data-status', status);
+        
+        // 更新状态文本
+        const statusDiv = equipment.querySelector('div:last-child');
+        if (statusDiv && statusDiv.style.fontSize === '10px') {
+          switch(status) {
+            case 'idle':
+              statusDiv.textContent = '空闲';
+              break;
+            case 'ok':
+              statusDiv.textContent = '正常';
+              break;
+            case 'ng':
+              statusDiv.textContent = '故障';
+              break;
+            case 'warning':
+              statusDiv.textContent = '待机';
+              break;
+          }
+        }
+      }
+    }
+    
+    // 模拟设备状态变化（演示用）
+    function simulateStatusChanges() {
+      const statuses = ['idle', 'ok', 'ng', 'warning'];
+      const equipments = ['tester1', 'tester2', 'tester3', 'robot1', 'robot2'];
+      
+      setInterval(() => {
+        const randomEquipment = equipments[Math.floor(Math.random() * equipments.length)];
+        const randomStatus = statuses[Math.floor(Math.random() * statuses.length)];
+        updateEquipmentStatus(randomEquipment, randomStatus);
+      }, 10000); // 每10秒随机更新一个设备状态
+    }
+    
     // 页面加载后初始化
     window.addEventListener('load', function() {
+      // 启动状态模拟（可选）
+      // simulateStatusChanges();
+      
       // 初始填充一些数据
       updateFunctionTestPanel({
         function: "FunctionTest",
