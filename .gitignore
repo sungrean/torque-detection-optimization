@@ -1,0 +1,44 @@
+# Visual Studio 文件
+*.suo
+*.user
+.vs/
+bin/
+obj/
+Debug/
+Release/
+
+# .NET 构建输出
+*.dll
+*.exe
+*.pdb
+
+# 依赖包
+packages/
+node_modules/
+
+# 临时文件
+*.tmp
+*.temp
+*.log
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# IDE 配置
+.vscode/
+.idea/
+
+# 运行时文件
+*.pid
+*.lock
+
+# 其他项目文件（不提交克隆的项目）
+winformWebpages/
+line-control1/
+flowith-flow/
+browser/
+download/
+
+# 日志文件
+*.txt
