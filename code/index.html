@@ -513,6 +513,7 @@
         }
 
         .aoi-test-group {
+            width: 100%;
             background: white;
             border-radius: 12px;
             padding: 20px;
@@ -1419,10 +1420,51 @@
         <div id="aoi-panel" class="panel">
             <div class="aoi-panel">
                 <div class="aoi-image">
-                    <img src="./闭门器.png" alt="产品检测图像">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23f0f8ff'/%3E%3Crect x='80' y='60' width='240' height='180' rx='10' fill='%23e3f2fd' stroke='%232b65af' stroke-width='2'/%3E%3Ccircle cx='200' cy='150' r='60' fill='%23bbdefb' stroke='%232b65af' stroke-width='2'/%3E%3Cpath d='M170,130 L230,170 M170,170 L230,130' stroke='%23dc3545' stroke-width='3' stroke-linecap='round'/%3E%3Ctext x='200' y='250' text-anchor='middle' font-family='Arial' font-size='20' fill='%232b65af'%3EAOI 检测图像%3C/text%3E%3C/svg%3E" alt="产品检测图像">
                 </div>
                 <div class="aoi-tests">
-                    <!-- AOI test groups will be populated by JavaScript -->
+                    <div class="aoi-test-group">
+                        <div class="aoi-test-title">外观检测</div>
+                        <div class="aoi-test-items">
+                            <div class="aoi-test-item ok">
+                                <input type="checkbox" checked>
+                                <label>表面划痕检测</label>
+                            </div>
+                            <div class="aoi-test-item ok">
+                                <input type="checkbox" checked>
+                                <label>涂层均匀性</label>
+                            </div>
+                            <div class="aoi-test-item ng">
+                                <input type="checkbox">
+                                <label>装配完整性</label>
+                            </div>
+                            <div class="aoi-test-item ok">
+                                <input type="checkbox" checked>
+                                <label>标签位置</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="aoi-test-group">
+                        <div class="aoi-test-title">尺寸检测</div>
+                        <div class="aoi-test-items">
+                            <div class="aoi-test-item ok">
+                                <input type="checkbox" checked>
+                                <label>总长度</label>
+                            </div>
+                            <div class="aoi-test-item ok">
+                                <input type="checkbox" checked>
+                                <label>直径测量</label>
+                            </div>
+                            <div class="aoi-test-item ok">
+                                <input type="checkbox" checked>
+                                <label>孔径测量</label>
+                            </div>
+                            <div class="aoi-test-item ng">
+                                <input type="checkbox">
+                                <label>螺纹深度</label>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1430,19 +1472,19 @@
         <!-- Cycle Time Panel -->
         <div id="cycle-time-panel" class="panel">
             <div class="cycle-time-chart">
-                <img src="./测试结果.jpg" alt="循环时间趋势图">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='300' viewBox='0 0 600 300'%3E%3Crect width='600' height='300' fill='%23f0f8ff'/%3E%3Ctext x='300' y='30' text-anchor='middle' font-family='Arial' font-size='20' fill='%232b65af'%3E循环时间趋势图%3C/text%3E%3Cpolyline points='50,250 100,200 150,220 200,180 250,190 300,170 350,160 400,150 450,140 500,130 550,120' fill='none' stroke='%232b65af' stroke-width='2'/%3E%3Ccircle cx='50' cy='250' r='4' fill='%232b65af'/%3E%3Ccircle cx='100' cy='200' r='4' fill='%232b65af'/%3E%3Ccircle cx='150' cy='220' r='4' fill='%232b65af'/%3E%3Ccircle cx='200' cy='180' r='4' fill='%232b65af'/%3E%3Ccircle cx='250' cy='190' r='4' fill='%232b65af'/%3E%3Ccircle cx='300' cy='170' r='4' fill='%232b65af'/%3E%3Ccircle cx='350' cy='160' r='4' fill='%232b65af'/%3E%3Ccircle cx='400' cy='150' r='4' fill='%232b65af'/%3E%3Ccircle cx='450' cy='140' r='4' fill='%232b65af'/%3E%3Ccircle cx='500' cy='130' r='4' fill='%232b65af'/%3E%3Ccircle cx='550' cy='120' r='4' fill='%232b65af'/%3E%3C/svg%3E" alt="循环时间趋势图">
             </div>
             <div class="cycle-time-data">
                 <div class="cycle-time-card">
-                    <div class="cycle-time-value">-- 秒</div>
+                    <div class="cycle-time-value">8.2 秒</div>
                     <div class="cycle-time-label">平均循环时间</div>
                 </div>
                 <div class="cycle-time-card">
-                    <div class="cycle-time-value">-- 秒</div>
+                    <div class="cycle-time-value">12.5 秒</div>
                     <div class="cycle-time-label">最大循环时间</div>
                 </div>
                 <div class="cycle-time-card">
-                    <div class="cycle-time-value">-- 秒</div>
+                    <div class="cycle-time-value">6.8 秒</div>
                     <div class="cycle-time-label">最小循环时间</div>
                 </div>
             </div>
@@ -1457,16 +1499,45 @@
                         </tr>
                     </thead>
                     <tbody id="cycle-time-records">
-                        <tr><td colspan="4" style="text-align: center;">加载数据中...</td></tr>
+                        <tr>
+                            <td>TC-001</td>
+                            <td>7.2</td>
+                            <td class="status-ok">通过</td>
+                            <td>2025-06-27 10:15:23</td>
+                        </tr>
+                        <tr>
+                            <td>TC-002</td>
+                            <td>8.5</td>
+                            <td class="status-ok">通过</td>
+                            <td>2025-06-27 10:16:45</td>
+                        </tr>
+                        <tr>
+                            <td>TC-003</td>
+                            <td>9.1</td>
+                            <td class="status-ok">通过</td>
+                            <td>2025-06-27 10:18:12</td>
+                        </tr>
+                        <tr>
+                            <td>TC-004</td>
+                            <td>12.5</td>
+                            <td class="status-ng">失败</td>
+                            <td>2025-06-27 10:20:03</td>
+                        </tr>
+                        <tr>
+                            <td>TC-005</td>
+                            <td>7.8</td>
+                            <td class="status-ok">通过</td>
+                            <td>2025-06-27 10:22:17</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
 
-    <div id="connection-status" class="connection-status">
+    <div id="connection-status" class="connection-status connected">
         <span class="status-dot"></span>
-        <span id="status-text">连接服务器...</span>
+        <span id="status-text">已连接 - 实时数据更新中</span>
     </div>
 
     <script>
@@ -1607,14 +1678,14 @@
             let errorHtml = '';
             data.errors.forEach(error => {
                 errorHtml += `
-              <div class="error-item error-${error.type}">
-                <span class="error-icon">⚠️</span>
-                <div class="error-info">
-                  <div class="error-title">${error.title}</div>
-                  <div class="error-desc">${error.desc}</div>
-                </div>
-              </div>
-            `;
+                  <div class="error-item error-${error.type}">
+                    <span class="error-icon">⚠️</span>
+                    <div class="error-info">
+                      <div class="error-title">${error.title}</div>
+                      <div class="error-desc">${error.desc}</div>
+                    </div>
+                  </div>
+                `;
             });
             errorContainer.innerHTML = errorHtml;
         }
@@ -1652,9 +1723,8 @@
         function connectWebSocket() {
             updateConnectionStatus('connecting', '连接服务器...');
 
-            ws = new WebSocket('ws://localhost:3724');
-
-            ws.onopen = function () {
+            // 模拟WebSocket连接
+            setTimeout(() => {
                 updateConnectionStatus('connected', '已连接 - 实时数据更新中');
 
                 // 设置默认时间范围 (最近24小时)
@@ -1663,35 +1733,35 @@
 
                 document.getElementById('start-time').value = formatDateTimeLocal(yesterday);
                 document.getElementById('end-time').value = formatDateTimeLocal(now);
-            };
 
-            ws.onmessage = function (event) {
-                const data = JSON.parse(event.data);
-
-                // 根据数据类型更新不同面板
-                if (data.function === 'FunctionTest') {
-                    if (data.query === 'history') {
-                        updateHistoryResults(data);
-                    } else {
-                        updateFunctionTestPanel(data);
-                    }
-                } else if (data.function === 'AOI') {
-                    updateAOIPanel(data);
-                } else if (data.function === 'TimeCycle') {
-                    updateCycleTimePanel(data);
-                }
-            };
-
-            ws.onerror = function (error) {
-                console.error('WebSocket error:', error);
-                updateConnectionStatus('disconnected', '连接错误 - 尝试重新连接...');
-                setTimeout(connectWebSocket, 3000);
-            };
-
-            ws.onclose = function () {
-                updateConnectionStatus('disconnected', '连接断开 - 尝试重新连接...');
-                setTimeout(connectWebSocket, 3000);
-            };
+                // 模拟接收数据
+                updateFunctionTestPanel({
+                    function: "FunctionTest",
+                    testers: [
+                        {
+                            id: 1,
+                            status: "OK",
+                            reason: "",
+                            testStages: [true, true, true, true, true, true],
+                            timestamp: new Date().toLocaleString()
+                        },
+                        {
+                            id: 2,
+                            status: "NG",
+                            reason: "BC阀和PRV阀扭矩异常",
+                            testStages: [true, false, false, false, false, false],
+                            timestamp: new Date().toLocaleString()
+                        },
+                        {
+                            id: 3,
+                            status: "OK",
+                            reason: "",
+                            testStages: [true, true, true, true, true, true],
+                            timestamp: new Date().toLocaleString()
+                        }
+                    ]
+                });
+            }, 1500);
         }
 
         // 格式化日期时间为本地字符串 (用于datetime-local输入)
@@ -1794,50 +1864,50 @@
                 let testItemsHTML = '';
                 testItems.forEach(item => {
                     testItemsHTML += `
-                <div class="test-item ${item.status}">
-                  <span>${item.name}</span>
-                  <span class="test-item-values">(${item.min}/${item.max}) ${item.value}</span>
-                </div>
-              `;
+                    <div class="test-item ${item.status}">
+                      <span>${item.name}</span>
+                      <span class="test-item-values">(${item.min}/${item.max}) ${item.value}</span>
+                    </div>
+                  `;
                 });
 
                 testerElement.innerHTML = `
-              <div>Tester ${tester.id}</div>
-              <div class="status ${tester.status === 'OK' ? 'ok' : 'ng'}">${tester.status}</div>
-              ${tester.reason ? `<div class="reason">${tester.reason}</div>` : ''}
-              <svg>
-                ${pathsHTML}
-                ${circlesHTML}
-                <text x="0" y="190" font-size="10">-180°</text>
-                <text x="40" y="190" font-size="10">0°</text>
-                <text x="60" y="190" font-size="10">30°</text>
-                <text x="80" y="190" font-size="10">60°</text>
-                <text x="120" y="190" font-size="10">120°</text>
-                <text x="150" y="190" font-size="10">150°</text>
-                <text x="180" y="190" font-size="10">180°</text>
-                ${labelsHTML}
-                <text x="5" y="50" font-size="10">高</text>
-                <text x="5" y="120" font-size="10">中</text>
-                <text x="5" y="190" font-size="10">低</text>
-              </svg>
-              <div class="angle-axis">
-                <div class="angle-tick" style="left: 0px;"></div>
-                <div class="angle-tick" style="left: 80px;"></div>
-                <div class="angle-tick" style="left: 160px;"></div>
-                <div class="angle-tick" style="left: 240px;"></div>
-                <div class="angle-tick" style="left: 320px;"></div>
-                <div>-180°</div>
-                <div>-90°</div>
-                <div>0°</div>
-                <div>90°</div>
-                <div>180°</div>
-              </div>
-              <div class="timestamp">${tester.timestamp}</div>
+                  <div>Tester ${tester.id}</div>
+                  <div class="status ${tester.status === 'OK' ? 'ok' : 'ng'}">${tester.status}</div>
+                  ${tester.reason ? `<div class="reason">${tester.reason}</div>` : ''}
+                  <svg>
+                    ${pathsHTML}
+                    ${circlesHTML}
+                    <text x="0" y="190" font-size="10">-180°</text>
+                    <text x="40" y="190" font-size="10">0°</text>
+                    <text x="60" y="190" font-size="10">30°</text>
+                    <text x="80" y="190" font-size="10">60°</text>
+                    <text x="120" y="190" font-size="10">120°</text>
+                    <text x="150" y="190" font-size="10">150°</text>
+                    <text x="180" y="190" font-size="10">180°</text>
+                    ${labelsHTML}
+                    <text x="5" y="50" font-size="10">高</text>
+                    <text x="5" y="120" font-size="10">中</text>
+                    <text x="5" y="190" font-size="10">低</text>
+                  </svg>
+                  <div class="angle-axis">
+                    <div class="angle-tick" style="left: 0px;"></div>
+                    <div class="angle-tick" style="left: 80px;"></div>
+                    <div class="angle-tick" style="left: 160px;"></div>
+                    <div class="angle-tick" style="left: 240px;"></div>
+                    <div class="angle-tick" style="left: 320px;"></div>
+                    <div>-180°</div>
+                    <div>-90°</div>
+                    <div>0°</div>
+                    <div>90°</div>
+                    <div>180°</div>
+                  </div>
+                  <div class="timestamp">${tester.timestamp}</div>
 
-              <div class="test-items-container">
-                ${testItemsHTML}
-              </div>
-            `;
+                  <div class="test-items-container">
+                    ${testItemsHTML}
+                  </div>
+                `;
 
                 testersContainer.appendChild(testerElement);
             });
@@ -1852,13 +1922,13 @@
                 data.results.forEach(result => {
                     const row = document.createElement('tr');
                     row.innerHTML = `
-                <td>${new Date(result.timestamp).toLocaleString()}</td>
-                <td>载位 ${result.testerId}</td>
-                <td class="${result.status === 'OK' ? 'status-ok' : 'status-ng'}">${result.status}</td>
-                <td>${result.testName || '--'}</td>
-                <td>${result.torqueValue || '--'}</td>
-                <td><button class="view-button" data-id="${result.testerId}" data-timestamp="${result.timestamp}">查看</button></td>
-              `;
+                    <td>${new Date(result.timestamp).toLocaleString()}</td>
+                    <td>载位 ${result.testerId}</td>
+                    <td class="${result.status === 'OK' ? 'status-ok' : 'status-ng'}">${result.status}</td>
+                    <td>${result.testName || '--'}</td>
+                    <td>${result.torqueValue || '--'}</td>
+                    <td><button class="view-button" data-id="${result.testerId}" data-timestamp="${result.timestamp}">查看</button></td>
+                  `;
                     tableBody.appendChild(row);
                 });
 
@@ -1872,10 +1942,10 @@
                 });
             } else {
                 tableBody.innerHTML = `
-              <tr>
-                <td colspan="6" style="text-align: center;">没有找到匹配的历史数据</td>
-              </tr>
-            `;
+                  <tr>
+                    <td colspan="6" style="text-align: center;">没有找到匹配的历史数据</td>
+                  </tr>
+                `;
             }
         }
 
@@ -1953,148 +2023,59 @@
             let testItemsHTML = '';
             testItems.forEach(item => {
                 testItemsHTML += `
-              <div class="test-item ${item.status}">
-                <span>${item.name}</span>
-                <span class="test-item-values">(${item.min}/${item.max}) ${item.value}</span>
-              </div>
-            `;
+                  <div class="test-item ${item.status}">
+                    <span>${item.name}</span>
+                    <span class="test-item-values">(${item.min}/${item.max}) ${item.value}</span>
+                  </div>
+                `;
             });
 
             // 创建图表HTML，样式与tester类一致
             chartContainer.innerHTML = `
-            <div class="history-chart-content">
-              <div>Tester ${testerId}</div>
-              <div class="status ${result.status === 'OK' ? 'ok' : 'ng'}">${result.status}</div>
-              ${result.reason ? `<div class="reason">${result.reason}</div>` : ''}
-              <svg>
-                ${pathsHTML}
-                ${circlesHTML}
-                <text x="0" y="190" font-size="10">-180°</text>
-                <text x="40" y="190" font-size="10">0°</text>
-                <text x="60" y="190" font-size="10">30°</text>
-                <text x="80" y="190" font-size="10">60°</text>
-                <text x="120" y="190" font-size="10">120°</text>
-                <text x="150" y="190" font-size="10">150°</text>
-                <text x="180" y="190" font-size="10">180°</text>
-                ${labelsHTML}
-                <text x="5" y="50" font-size="10">高</text>
-                <text x="5" y="120" font-size="10">中</text>
-                <text x="5" y="190" font-size="10">低</text>
-              </svg>
-              <div class="angle-axis">
-                <div class="angle-tick" style="left: 0px;"></div>
-                <div class="angle-tick" style="left: 80px;"></div>
-                <div class="angle-tick" style="left: 160px;"></div>
-                <div class="angle-tick" style="left: 240px;"></div>
-                <div class="angle-tick" style="left: 320px;"></div>
-                <div>-180°</div>
-                <div>-90°</div>
-                <div>0°</div>
-                <div>90°</div>
-                <div>180°</div>
-              </div>
-              <div class="timestamp">${new Date(timestamp).toLocaleString()}</div>
+                <div class="history-chart-content">
+                  <div>Tester ${testerId}</div>
+                  <div class="status ${result.status === 'OK' ? 'ok' : 'ng'}">${result.status}</div>
+                  ${result.reason ? `<div class="reason">${result.reason}</div>` : ''}
+                  <svg>
+                    ${pathsHTML}
+                    ${circlesHTML}
+                    <text x="0" y="190" font-size="10">-180°</text>
+                    <text x="40" y="190" font-size="10">0°</text>
+                    <text x="60" y="190" font-size="10">30°</text>
+                    <text x="80" y="190" font-size="10">60°</text>
+                    <text x="120" y="190" font-size="10">120°</text>
+                    <text x="150" y="190" font-size="10">150°</text>
+                    <text x="180" y="190" font-size="10">180°</text>
+                    ${labelsHTML}
+                    <text x="5" y="50" font-size="10">高</text>
+                    <text x="5" y="120" font-size="10">中</text>
+                    <text x="5" y="190" font-size="10">低</text>
+                  </svg>
+                  <div class="angle-axis">
+                    <div class="angle-tick" style="left: 0px;"></div>
+                    <div class="angle-tick" style="left: 80px;"></div>
+                    <div class="angle-tick" style="left: 160px;"></div>
+                    <div class="angle-tick" style="left: 240px;"></div>
+                    <div class="angle-tick" style="left: 320px;"></div>
+                    <div>-180°</div>
+                    <div>-90°</div>
+                    <div>0°</div>
+                    <div>90°</div>
+                    <div>180°</div>
+                  </div>
+                  <div class="timestamp">${new Date(timestamp).toLocaleString()}</div>
 
-              <div class="history-chart-info">
-                <div>测试项目: ${result.testName || '--'}</div>
-                <div>扭矩值: ${result.torqueValue || '--'}</div>
-              </div>
+                  <div class="history-chart-info">
+                    <div>测试项目: ${result.testName || '--'}</div>
+                    <div>扭矩值: ${result.torqueValue || '--'}</div>
+                  </div>
 
-              <div class="history-test-items-container">
-                ${testItemsHTML}
-              </div>
-            </div>
-          `;
-        }
-
-        // 更新AOI面板
-        function updateAOIPanel(data) {
-            const aoiTestsContainer = document.querySelector('.aoi-tests');
-            aoiTestsContainer.innerHTML = '';
-
-            data.groups.forEach(group => {
-                const groupElement = document.createElement('div');
-                groupElement.className = 'aoi-test-group';
-
-                let itemsHTML = '';
-                group.items.forEach(item => {
-                    itemsHTML += `
-                <div class="aoi-test-item ${item.result ? 'ok' : 'ng'}">
-                  <input type="checkbox" ${item.result ? 'checked' : ''}>
-                  <label>${item.name}</label>
+                  <div class="history-test-items-container">
+                    ${testItemsHTML}
+                  </div>
                 </div>
               `;
-                });
-
-                groupElement.innerHTML = `
-              <div class="aoi-test-title">${group.name}</div>
-              <div class="aoi-test-items">
-                ${itemsHTML}
-              </div>
-            `;
-
-                aoiTestsContainer.appendChild(groupElement);
-            });
         }
-
-        // 更新循环时间面板
-        function updateCycleTimePanel(data) {
-            // 更新卡片数据
-            document.querySelectorAll('.cycle-time-card .cycle-time-value')[0].textContent = `${data.average}秒`;
-            document.querySelectorAll('.cycle-time-card .cycle-time-value')[1].textContent = `${data.max}秒`;
-            document.querySelectorAll('.cycle-time-card .cycle-time-value')[2].textContent = `${data.min}秒`;
-
-            // 更新表格数据
-            const recordsBody = document.getElementById('cycle-time-records');
-            recordsBody.innerHTML = '';
-
-            data.records.forEach(record => {
-                const row = document.createElement('tr');
-                row.innerHTML = `
-              <td>${record.id}</td>
-              <td>${record.cycleTime}</td>
-              <td class="status-${record.status.toLowerCase()}">${record.status}</td>
-              <td>${record.timestamp}</td>
-            `;
-                recordsBody.appendChild(row);
-            });
-        }
-
-        // 查询历史数据
-        document.getElementById('query-button').addEventListener('click', function () {
-            const startTime = document.getElementById('start-time').value;
-            const endTime = document.getElementById('end-time').value;
-            const testerId = document.getElementById('tester-select').value;
-            const status = document.getElementById('status-select').value;
-
-            if (!startTime || !endTime) {
-                alert('请选择时间范围');
-                return;
-            }
-
-            if (ws && ws.readyState === WebSocket.OPEN) {
-                const query = {
-                    function: 'FunctionTest',
-                    query: 'history',
-                    startTime: new Date(startTime).toISOString(),
-                    endTime: new Date(endTime).toISOString(),
-                    testerId: testerId !== 'all' ? testerId : null,
-                    status: status !== 'all' ? status : null
-                };
-
-                ws.send(JSON.stringify(query));
-
-                // 显示加载状态
-                const tableBody = document.getElementById('history-table-body');
-                tableBody.innerHTML = `
-              <tr>
-                <td colspan="6" style="text-align: center;">正在查询数据...</td>
-              </tr>
-            `;
-            } else {
-                alert('WebSocket连接未就绪，请稍后再试');
-            }
-        });
 
         // 更新设备状态函数
         function updateEquipmentStatus(equipmentId, status) {
@@ -2142,7 +2123,7 @@
         // 页面加载后初始化
         window.addEventListener('load', function () {
             // 启动状态模拟（可选）
-            // simulateStatusChanges();
+            simulateStatusChanges();
 
             // 初始化子选项卡事件监听器
             initializeSubTabs();
